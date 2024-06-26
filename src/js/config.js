@@ -17,10 +17,10 @@ export class Config {
   static showNRowLbl = true;
 
   // Initial value for number of cells in the grid
-  static initNCell = 91;
+  static initNCell = 100;
 
   // Initial value for the multiple to count
-  static initMultiple = 7;
+  static initMultiple = 5;
 
   // Initial value for whether 'compute the number of columns' is checked or not
   static initComputeColsChecked = true;
