@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ======================================================================= -->
+<!-- author: Toni Price (https://toni.rbind.io) -->
+<!-- ======================================================================= -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Count in Multiples &#8212; count along to your multiple of choice</title>
+    <meta name="description" content="A little tool to practise counting in multiples">
+    <meta name="keywords" content="count in multiples, counting in multiples, count, multiples, maths, numbers, animation of counting in multiples">
+    <meta name="author" content="Toni Price">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="module" src="js/countinmultiples.js"></script>
+    <script type="module" src="js/title-animator.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <main>
+    <a id="page-top"></a>
+
+    <h1 class="title">
+      <a href="#" id="countinmultiples" class="notice-me" title="reload countinmultiples" tabindex="0">countinmultiples</a>
+      <span class="release-stage">beta</span>
+    </h1>
+
+    <div id="config" class="config-fields">
+      <form>
+        <fieldset>
+
+          <div id="ncell" class="col">
+
+            <div class="col__fields">
+              <label id="ncell-lbl" for="ncell-inp">Count to</label>
+              <input type="number" id="ncell-inp" step="1" class="inp-large" tabindex="0" min="1">
+            </div>
+
+            <div class="col__config"></div>
+
+            <div class="col__extra-info"></div>
+          </div>
+
+          <div id="multiple" class="col">
+
+            <div class="col__fields">
+              <label id="mult-lbl" for="mult-inp">In multiples of</label>
+              <input type="number" id="mult-inp" step="1" class="inp-large" tabindex="0" min="1">
+            </div>
+
+            <div class="col__config">
+              <div class="chkbox-grp">
+                <input type="checkbox" id="high-mult-chk" tabindex="0">
+                <label for="high-mult-chk" id="high-mult-chk-lbl" class="sub-lbl">show highest multiple</label>
+              </div>
+            </div>
+
+            <div id="high-mult-lbl" class="col__extra-info sub-lbl"></div>
+          </div>
+
+          <div id="speed" class="col">
+
+            <div class="col__fields">
+              <label for="speed-inp">Speed</label>
+              <input type="number" id="speed-inp" class="inp-small" tabindex="0" step="1" min="1" max="100" >
+              <div class="tooltip">
+                <div class="tooltip__text not-shown"><label for="speed-range">speed</label></div>
+                <input type="range" id="speed-range" tabindex="-1" min="1" max="100">
+              </div>
+            </div>
+
+            <div class="col__config"></div>
+
+            <div class="col__extra-info"></div>
+          </div>
+
+          <div id="columns" class="col">
+
+            <div class="col__fields">
+              <label for="ncol-inp">Columns</label>
+              <input type="number" id="ncol-inp" step="1" class="inp-small" tabindex="0" min="1">
+            </div>
+
+            <div class="col__config">
+              <div class="chkbox-grp">
+                <input type="checkbox" id="compute-ncol-chk" tabindex="0">
+                <label for="compute-ncol-chk" id="compute-ncol-chk-lbl" class="sub-lbl">automatic</label>
+              </div>
+            </div>
+
+            <div id="nrow-lbl" class="col__extra-info sub-lbl"></div>
+          </div>
+
+          <div id="recalculate-dims" class="col btn-col">
+            <div class="tooltip">
+              <button type="button" id="recalculate-dims-btn" tabindex="0">
+                <div class="square-icon">
+                  <img src="./assets/reload.svg" alt="recalculate columns and rows" width="28" height="28">
+                </div>
+              </button>
+              <div class="tooltip__text recalc-tooltip-pos">recalculate columns and rows</div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+  
+    </div>
+
+    <div id="main-wrapper">
+
+      <div id="run-controls">
+        <form id="controls">
+          <fieldset>
+
+            <div class="controls__go">
+              <button type="button" id="start-btn" tabindex="0">Start</button>
+              <button type="button" id="pause-continue-btn" tabindex="0">Stop</button>
+              <button type="button" id="clear-btn" tabindex="0">Clear</button>
+            </div>
+
+            <div id="speed-change-btns" class="controls__settings">
+              <div class="tooltip">
+                <button type="button" id="speed-up-btn" class="setings-icon-link" tabindex="0">
+                  <img src="./assets/speed-up-icon.svg" alt="speed up" width="44" height="46">
+                </button>
+                <div class="tooltip__text middle-right">speed up</div>
+              </div>
+              <div class="tooltip">
+                <button type="button" id="speed-reset-btn" class="settings-text-link" tabindex="0">
+                  <div>Speed</div>
+                </button>
+                <div class="tooltip__text middle-right">default speed</div>
+              </div>
+              <div class="tooltip">
+                <button type="button" id="speed-down-btn" class="setings-icon-link" tabindex="0">
+                  <img src="./assets/speed-down-icon.svg" alt="slow down" width="44" height="46">
+                </button>
+                <div class="tooltip__text middle-right">slow down</div>
+              </div>
+            </div>
+
+            <div id="size-change-btns" class="controls__settings">
+              <div class="tooltip">
+                <button type="button" id="size-up-btn" class="setings-icon-link" tabindex="0">
+                  <img src="./assets/text-size-up-icon.svg" alt="increase text size" width="46" height="46">
+                </button>
+                <div class="tooltip__text middle-right">increase size</div>
+              </div>
+              <div class="tooltip">
+                <button type="button" id="size-reset-btn" class="settings-text-link" tabindex="0">
+                  <div>Text</div>
+                </button>
+                <div class="tooltip__text middle-right">default size</div>
+              </div>
+              <div class="tooltip">
+                <button type="button" id="size-down-btn" class="setings-icon-link" tabindex="0">
+                  <img src="./assets/text-size-down-icon.svg" alt="decrease text size" width="46" height="46">
+                </button>
+                <div class="tooltip__text middle-right">decrease size</div>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="grid-container">
+
+        <noscript>
+          <span id="js-required-msg">
+            countinmultiples requires JavaScript to run. Please
+            <a href="https://www.enable-javascript.com/">enable JavaScript</a> to continue.
+          </span>
+        </noscript>
+
+        <div id="num-grid">
+          <div id="cell-1"></div>
+          <div id="cell-2"></div>
+          <div id="cell-3"></div>
+          <div id="cell-4"></div>
+
+          <div id="cell-5"></div>
+          <div id="cell-6"></div>
+          <div id="cell-7"></div>
+          <div id="cell-8"></div>
+
+          <div id="cell-9"></div>
+          <div id="cell-10"></div>
+          <div id="cell-11"></div>
+          <div id="cell-12"></div>
+
+          <div id="cell-13"></div>
+          <div id="cell-14"></div>
+          <div id="cell-15"></div>
+          <div id="cell-16"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      Created by: <a href="https://toni.rbind.io/" target="_blank" rel="noopener noreferrer">Toni Price</a>
+      <a href="https://orcid.org/0000-0002-9109-5011/" target="_blank" rel="noopener noreferrer"
+         id="orcid-link"><img alt="ORCID record - Toni Price" src="assets/ORCID_iD.svg" width="18" height="18"></a>
+    </div>
+    <div>
+      <!-- MIT: href="https://opensource.org/licenses/mit-license.php" -->
+      <a href="LICENSE.html" target="_blank" rel="noopener noreferrer">Licence (MIT)</a>
+    </div>
+
+    <div>
+      <a href="https://toni.rbind.io/countinmultiples/docs/" target="_blank" rel="noopener noreferrer">
+        Documentation</a>
+    </div>
+
+    <div>
+      <a href="https://github.com/toniprice/countinmultiples/" target="_blank" rel="noopener noreferrer"
+         id="github-link"><img alt="GitHub repo - Toni Price" src="assets/github-mark.svg" width="18" height="18">
+      </a>
+    </div>
+
+    <div>&#169; 2023-2024 Toni Price</div>
+  </footer>
+
+</body>
+</html>
