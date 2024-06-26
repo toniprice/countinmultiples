@@ -1,0 +1,13 @@
+.vscode
+remote-debug-profile/
+
+node_modules/
+
+.env
+
+build/
+src/minjs/
+src/apple-touch-icon.png
+src/favicon-16x16.png
+src/favicon-32x32.png
+src/site.webmanifest
