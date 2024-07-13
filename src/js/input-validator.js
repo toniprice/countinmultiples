@@ -61,6 +61,10 @@ export class InputValidator {
     const configContainer = document.querySelector(containerSel);
     this.#configCols = configContainer.querySelectorAll(colSel);
 
+    // TODO: If this.#configCols is not needed then remove it
+    log(Level.Debug, 'Config cols:', ctxt());
+    log(Level.Debug, this.#configCols, ctxt(), 'tab');
+
     this.#keyOrder = keyOrder;
     this.#fields = fields;
 
