@@ -53,7 +53,6 @@ class CountInMultiples {
     this.computeColsChk = this.#numGrid.computeColsChk;
     this.computeColsChkLbl = this.#numGrid.computeColsChkLbl;
     this.nRowLbl = this.#numGrid.nRowLbl;
-    this.recalcDimsBtn = this.#numGrid.recalcDimsBtn;
 
     this.startBtn = this.#numGrid.startBtn;
     this.pauseContinueBtn = this.#numGrid.pauseContinueBtn;
@@ -90,8 +89,6 @@ class CountInMultiples {
     this.#reloadLink.addEventListener('click', this.#onReload);
 
     // ---------------------------------
-    this.nCellInput.addEventListener('input', this.#onRecalcDimsInput);
-
     this.nCellInput.addEventListener('change', this.#onNCellInputChange);
 
     // ---------------------------------
@@ -109,15 +106,10 @@ class CountInMultiples {
     this.speedRange.addEventListener('change', this.#onSpeedRangeChange);
 
     // ---------------------------------
-    this.nColInput.addEventListener('input', this.#onRecalcDimsInput);
-
     this.nColInput.addEventListener('change', this.#onNColInputChange);
 
     // ---------------------------------
     this.computeColsChk.addEventListener('change', this.#onComputeColsCheck);
-
-    // ---------------------------------
-    this.recalcDimsBtn.addEventListener('click', this.#onRecalcDims);
 
     // ---------------------------------
     this.startBtn.addEventListener('click', this.#onStart);
@@ -150,17 +142,6 @@ class CountInMultiples {
     if (Config.enableTitleAnimator) {
       this.#titleAnimator.animate();
     }
-  };
-
-  /**
-   * Handles input for config fields which could result in the user clicking the
-   *   'recalculate columns and rows' button.
-   */
-  #onRecalcDimsInput = () => {
-    this.#numGrid.freezeRunCtrls();
-
-    const hasTooltip = true;
-    this.#numGrid.enableCtrl(this.recalcDimsBtn, hasTooltip);
   };
 
   /**
@@ -355,13 +336,6 @@ class CountInMultiples {
    */
   #onComputeColsCheck = () => {
     this.#numGrid.handleComputeColsCheck();
-  };
-
-  /**
-   * Handles button clicks for the 'recalculate dims' (rows and columns) button.
-   */
-  #onRecalcDims = () => {
-    this.#numGrid.resetGridDims();
   };
 
   /**
