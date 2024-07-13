@@ -98,7 +98,6 @@ export class NumberGrid {
     this.computeColsChk = document.getElementById(Config.computeColsChkId);
     this.computeColsChkLbl = document.getElementById(computeColsChkLblId);
     this.nRowLbl = document.getElementById(Config.nRowLblId);
-    this.recalcDimsBtn = document.getElementById(Config.recalcDimsBtnId);
 
     this.startBtn = document.getElementById(Config.startBtnId);
     this.pauseContinueBtn = document.getElementById(Config.pauseContinueBtnId);
@@ -661,8 +660,7 @@ export class NumberGrid {
     // --- --- ---
     // Config inputs
 
-    const hasTooltip = true;
-    this.disableCtrl(this.recalcDimsBtn, hasTooltip);
+    // None with individual requirements
   };
 
   /**
@@ -919,9 +917,6 @@ export class NumberGrid {
     this.disableCtrl(this.speedRange);
     this.disableCtrl(this.nColInput);
     this.disableCtrl(this.computeColsChk);
-
-    const hasTooltip = true;
-    this.disableCtrl(this.recalcDimsBtn, hasTooltip);
   };
 
   /**
@@ -1393,9 +1388,6 @@ export class NumberGrid {
     if (!this.#validator.stateIsValid()) {
       this.#setInitControls();
     }
-
-    const hasTooltip = true;
-    this.disableCtrl(this.recalcDimsBtn, hasTooltip);
 
     this.redrawGrid();
   };

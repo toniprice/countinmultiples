@@ -103,7 +103,6 @@ export class Config {
   static computeColsChkId = 'compute-ncol-chk';
   static computeColsChkLblId = 'compute-ncol-chk-lbl';
   static nRowLblId = 'nrow-lbl';
-  static recalcDimsBtnId = 'recalculate-dims-btn';
 
   static startBtnId = 'start-btn';
   static pauseContinueBtnId = 'pause-continue-btn';
