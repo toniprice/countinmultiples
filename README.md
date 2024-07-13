@@ -3,8 +3,8 @@
 Count along to your multiple of choice!
 
 An interactive web tool to practise counting in multiples. I originally created
-this whilst volunteering with a primary school&#8217;s &#8220;Maths
-Mountain&#8221; program which aims to help children become more secure in
+it whilst volunteering for a primary school&#8217;s &#8216;Maths Mountain&#8217;
+program which aims to help children become more secure in
 [times tables](https://www.bbc.co.uk/bitesize/search?q=times+tables)
 and
 [number bonds](https://www.bbc.co.uk/bitesize/search?q=number+bonds).
