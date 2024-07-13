@@ -1,13 +1,15 @@
 # ==============================================================================
-# Check that debugging is disabled (intended for use prior to build and
-# deployment)
+# Check that logging is disabled (intended for use as a prehook prior to build
+# and deployment)
 
 # Path to JavaScript directory, specified relative to the project root
 declare -r JS_PATH="./src/js"
 
+shopt -s extglob
+
 # ------------------------------------------------------------------------------
 # Checks all .js files in the specified directory for occurrences of the regex
-# to detect DEBUG and/or VDBG being set to true
+# to detect LOGLEV set to anything other than Level.None
 
 # Usage: check_settings <js_path>
 #   js_path: Path to JavaScript directory, specified relative to the project root
@@ -48,27 +50,27 @@ function check_settings {
   fi
 
   # ------------------------------------
-  # Check for occurrences of the supplied regex, i.e. check the DEBUG/VDBG settings
+  # Check for occurrences of the supplied regex, i.e. check the LOGLEV setting
 
-  echo -e "-> Checking that console logging is disabled (via DEBUG|VDBG settings)"
+  echo -e "-> Checking that console logging is disabled"
+  echo -e "   (i.e. checking that LOGLEV = Level.None)"
+  echo -e "Path to check: '$js_dir'"
 
-  echo -e "\nPath to check: '$js_dir'"
-
-  # Grep the .js files for whether DEBUG and/or VDBG are set to true anywhere
-
-
-  # Regex to check for DEBUG and/or VDBG being set to true
-  # Note: A more inclusive regex would be ".*(DEBUG|VDBG) = true.*"
-  declare -r regex="^[[:space:]]*(DEBUG|VDBG) = true"
+  # Use a regex to grep the .js files for whether log level is set to anything
+  # other than Level.None
+  # Exclude lines which start with any variation on ' * ' (i.e. jsdoc lines)
+  declare -r regex="^\s*[^*]*\s*LOGLEV\s*=\s*Level\.[^N]"
 
   grep_res=$( grep -E "$regex" "$js_dir/"*.js )
 
   if [[ -n "$grep_res" ]]; then
     echo -e "\n----------------------------------------"
-    echo -e "Error: DEBUG and/or VDBG must be set to false"
-    echo -e "- DEBUG and/or VDBG are set to true in at least one .js file."
-    echo -e "- Please ensure DEBUG and VDBG are set to false before building."
-    echo -e "  (check for occurrences of 'DEBUG = true' and 'VDBG = true' in .js files)"
+    echo -e "Error: LOGLEV must be set to Level.None"
+    echo -e "- LOGLEV is set to something other than Level.None in at least one .js file."
+    echo -e "- Please ensure 'LOGLEV = Level.None' before building."
+
+    echo -e "\nGrep results:\n$grep_res"
+
     echo -e "----------------------------------------\n"
     return "$fail_retval"
   fi
