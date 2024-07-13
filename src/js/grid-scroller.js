@@ -65,8 +65,6 @@ export class GridScroller {
     // https://stackoverflow.com/questions/56099931/intersectionobserver-find-out-when-element-is-outside-viewport
     // [31jan24]
 
-    // const callbackFunc = this.#observerOpts.callbackFunc;
-
     /**
      * Checks if any of the given HTML elements are outside the viewport.
      *
@@ -74,7 +72,7 @@ export class GridScroller {
      * @param {Object} observer The observer object for which to check the
      *   entries.
      */
-    function onAnimate(entries, observer) {
+    function onAnimate(entries) {
       entries.forEach((entry) => {
 
         const isInView = entry.isIntersecting;
