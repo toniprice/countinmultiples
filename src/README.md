@@ -126,9 +126,9 @@ Deletes all files in build/.
 
 - `prebuild` \
 Pre-hook for the `build` script. Runs the linux bash script
-tools/check-log-settings.sh which checks that debugging is disabled prior to
-build and deployment. It does this by checking if `LOGLEV` is set to anything
-other than `Level.None` in .js files in src/js/.
+tools/check-log-level.sh which checks that debugging is disabled prior to build
+and deployment. It does this by checking if `LOGLEV` is set to anything other
+than `Level.None` in .js files in src/js/.
 
 - `build` \
 Note that this task is identical to `dev:build` except that `dev:build` does not
