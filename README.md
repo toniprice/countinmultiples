@@ -18,8 +18,7 @@ as a personal learning exercise and more
 recently updated it for
 [ECMAScript 6](https://www.codecademy.com/article/javascript-versions).
 
-[countinmultiples](https://toni.rbind.io/countinmultiples) is
-&#8216;vanilla&#8217; in the sense of plain, i.e. with no dependence on
-JavaScript frameworks.
+The code is &#8216;vanilla&#8217; in the sense of plain, i.e. with no
+dependence on JavaScript frameworks.
 
 View the [docs](https://toni.rbind.io/countinmultiples/docs) for devloper info.
