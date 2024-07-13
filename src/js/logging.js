@@ -34,7 +34,6 @@ export let LOGLEV;
 
 if (typeof (LOGLEV) === 'undefined') { LOGLEV = Level.None; }
 
-
 /**
  * Gets name of calling function name for logging purposes.
  * @param {RegExp} replacePattern - Pattern to replace from start of function
