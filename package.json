@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "with-env": "dotenv-run-script .env --",
+    "lint": "eslint src/js/*.js",
     "copy:assets": "copyfiles -u 2 \"src/assets/**/*\" build/assets",
     "copy:favicon": "copyfiles -u 2 \"src/favicon/*\" build/",
     "copy:css": "copyfiles -u 2 \"src/css/**/*.css\".css build/css",
@@ -38,12 +39,16 @@
     "preview:build": "dotenv-run-script .env -- browser:build"
   },
   "devDependencies": {
+    "@eslint/js": "^9.7.0",
     "autoprefixer": "^10.4.17",
     "browser-sync": "^3.0.2",
     "clean-jsdoc-theme": "^4.2.17",
     "copyfiles": "^2.4.1",
     "cssnano": "^7.0.1",
     "dotenv-run-script": "^0.4.1",
+    "eslint": "^9.7.0",
+    "eslint-plugin-jsdoc": "^48.7.0",
+    "globals": "^15.8.0",
     "jsdoc": "^4.0.2",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^11.0.0",
