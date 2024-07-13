@@ -565,11 +565,8 @@ export class NumberGrid {
 
   /**
    * Renders the current UI state.
-   *
-   * @param {State} state - A valid `State` value which represents the current
-   *   state of the UI to be rendered.
    */
-  renderState = (state) => {
+  renderState = () => {
 
     log(Level.Debug, `-> Rendering state: ${this.#state.toString()}`, ctxt());
 
@@ -626,7 +623,7 @@ export class NumberGrid {
    */
   setAndRenderState = (state) => {
     this.setState(state);
-    this.renderState(state);
+    this.renderState();
   };
 
   /**

@@ -521,7 +521,7 @@ export class GridAnimator {
       break;
 
     case State.Complete:
-      this.#numGrid.renderState(State.Complete);
+      this.#numGrid.setAndRenderState(State.Complete);
       break;
 
     default:
