@@ -21,7 +21,7 @@
     "dev:build": "npm-run-all --print-name --sequential clean build:* copytobuild",
     "dev:sass": "sass --watch --update --style=expanded  src/sass:src/css",
     "clean": "touch ./build/PLACEHOLDER.txt && rm -r ./build/*",
-    "prebuild": "bash ./tools/check-log-settings.sh",
+    "prebuild": "bash ./tools/check-log-level.sh",
     "build": "npm-run-all --print-name --sequential clean build:* copytobuild",
     "postbuild": "postcss \"build/css/*.css\" --replace --no-map --use autoprefixer cssnano",
     "jsdoc:clean": "rm -r ./build/docs/*",
