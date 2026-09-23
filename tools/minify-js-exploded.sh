@@ -13,6 +13,8 @@ DEST_PATH="./src/minjs"
 ABS_SRC_PATH=$( realpath "$SRC_PATH" )
 ABS_DEST_PATH=$( realpath "$DEST_PATH" )
 
+mkdir -p "$ABS_DEST_PATH"
+
 while IFS= read -r -d '' FILE; do
   OUT="$ABS_DEST_PATH/$(basename "$FILE" .js)".js;
   echo "$SRC_PATH/$( basename "$FILE" ) -> $DEST_PATH/$( basename "$OUT" )"

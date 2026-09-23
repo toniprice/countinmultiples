@@ -10,7 +10,7 @@
       "destination": "./build/docs/",
       "recurse": true,
       "verbose": true,
-      "template": "./node_modules/clean-jsdoc-theme",
+      "template": "./node_modules/clean-jsdoc-theme/dist",
       "theme_opts": {
           "default_theme": "fallback-light"
       }

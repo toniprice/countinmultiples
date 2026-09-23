@@ -24,7 +24,7 @@
     "build:jsdoc": "jsdoc --configure jsdoc.json -d build/docs",
     "dev:build": "npm-run-all --print-name --sequential clean build:* copytobuild",
     "dev:sass": "sass --watch --update --style=expanded  src/sass:src/css",
-    "clean": "touch ./build/PLACEHOLDER.txt && rm -r ./build/*",
+    "clean": "mkdir -p ./build && touch ./build/PLACEHOLDER.txt && rm -r ./build/*",
     "prebuild": "bash ./tools/check-log-level.sh",
     "build": "npm-run-all --print-name --sequential clean build:* copytobuild",
     "postbuild": "postcss \"build/css/*.css\" --replace --no-map --use autoprefixer cssnano",
@@ -46,7 +46,7 @@
     "@eslint/js": "^9.7.0",
     "autoprefixer": "^10.4.17",
     "browser-sync": "^3.0.2",
-    "clean-jsdoc-theme": "^4.2.17",
+    "clean-jsdoc-theme": "^5.2.0",
     "copyfiles": "^2.4.1",
     "cssnano": "^7.0.1",
     "dotenv-run-script": "^0.4.1",
@@ -58,5 +58,8 @@
     "postcss-cli": "^11.0.0",
     "sass": "^1.69.5",
     "terser": "^5.26.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }
