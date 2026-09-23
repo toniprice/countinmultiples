@@ -21,8 +21,8 @@ for installation instructions.
 
 Then use `npm` to install development dependencies:
 
-```
-$ npm install
+```bash
+npm install
 ```
 
 This should install all dependencies from the
@@ -196,20 +196,21 @@ Note NB: Requires:
   - The dotenv file to be loaded for the deployment path.
   - An appropriate launch.json configuration to be specified in .vscode/launch.json,
   for example:
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch chrome on localhost",
-      "url": "http://localhost:8020",
-      "webRoot": "${workspaceFolder}/src"
-    }
-  ]
-}
-```
+
+   ```json
+   {
+     "version": "0.2.0",
+     "configurations": [
+       {
+         "type": "chrome",
+         "request": "launch",
+         "name": "Launch chrome on localhost",
+         "url": "http://localhost:8020",
+         "webRoot": "${workspaceFolder}/src"
+       }
+     ]
+   }
+   ```
 
 - `browser:noopen` \
 Uses [browser-sync](https://www.npmjs.com/package/browser-sync) to serve files
