@@ -5,6 +5,10 @@
   "browser": "build/js/countinmultiples.js",
   "author": "Toni Price (http://toni.rbind.io/)",
   "license": "MIT",
+  "engines": {
+    "node": ">=24.21.0 <25",
+    "npm": ">=11.19.0 <12"
+  },
   "scripts": {
     "with-env": "dotenv-run-script .env --",
     "lint": "eslint src/js/*.js",
