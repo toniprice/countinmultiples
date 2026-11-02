@@ -47,10 +47,8 @@ This should install all dependencies from the
 ## The .env file
 
 - In the root of your project directory, create a dotenv file (called '.env').
-- Specify two environment variables:
-  - `DEPLOY_PATH="</path/to/local/deployment/dir>"` [*required*] \
-    The deployment path.
-  - `BROWSER="<browser-for-previews>"` [*optional*] \
+- Specify the optional environment variable:
+  - `BROWSER="<browser-for-previews>"` \
     E.g. `BROWSER="firefox"` \
     The browser to use for previewing the site. If `BROWSER` is not specified, or
     `BROWSER` is empty, running the `preview:*` scripts will start up a local
